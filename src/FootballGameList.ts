@@ -1,20 +1,5 @@
 import {CsvFileReader} from "./CsvFileReader";
 
-export enum GameResult {
-    homeWin = 'H',
-    awayWin = 'A',
-    draw = 'D'
-}
-
-export type MatchData = [Date, string, string, number, number, GameResult, string]
-
-export const dateStringToDate = (dateString: string): Date => {
-    const parts = dateString
-        .split('/')
-        .map((value:string) => {return parseInt(value)})
-    return new Date(parts[2], parts[1] -1, parts[0])
-}
-
 export class FootballGameList extends CsvFileReader<MatchData>{
     mapRow(row: string[]): MatchData {
         return [

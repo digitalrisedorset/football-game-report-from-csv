@@ -1,8 +1,8 @@
-import {FootballGameList, GameResult, MatchData} from "./FootballGameList";
+import {MatchReader, GameResult, MatchData} from "./MatchReader";
 
 export class FooballReportBuilder {
-    private footballGameList: FootballGameList;
-    constructor(footballGameList: FootballGameList) {
+    private footballGameList: MatchData[];
+    constructor(footballGameList: MatchData[]) {
         this.footballGameList = footballGameList
     }
     countManUnitedWin(): number {
