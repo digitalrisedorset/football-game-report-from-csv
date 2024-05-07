@@ -15,18 +15,16 @@ export const dateStringToDate = (dateString: string): Date => {
     return new Date(parts[2], parts[1] -1, parts[0])
 }
 
-export class FootballGameList {
-    constructor(csvFileReader: CsvFileReader) {
-        return csvFileReader.getData.map((row) => {
-            return [
-                dateStringToDate(row[0]),
-                row[1],
-                row[2],
-                parseInt(row[3]),
-                parseInt(row[4]),
-                row[5] as GameResult,
-                row[6]
-            ] as MatchData
-        })
+export class FootballGameList extends CsvFileReader<MatchData>{
+    mapRow(row: string[]): MatchData {
+        return [
+            dateStringToDate(row[0]),
+            row[1],
+            row[2],
+            parseInt(row[3]),
+            parseInt(row[4]),
+            row[5] as GameResult,
+            row[6]
+        ] as MatchData
     }
 }

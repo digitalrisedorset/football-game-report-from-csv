@@ -1,13 +1,11 @@
-import {CsvFileReader} from './CsvFileReader'
+import {FootballGameList} from './FootballGameList'
 import {FooballReportBuilder} from "./FooballReportBuilder";
-import {FootballGameList} from "./FootballGameList";
 
-const fileReader = new CsvFileReader('football.csv')
-const footballGameList = new FootballGameList(fileReader)
+const footballGameReader = new FootballGameList('football.csv')
 
-console.log(fileReader.getData[0])
+console.log(footballGameReader[0])
 
-const footballGameReport = new FooballReportBuilder(footballGameList)
+const footballGameReport = new FooballReportBuilder(footballGameReader)
 console.log(footballGameReport.countManUnitedWin())
 
 console.log(footballGameReport.dateFirstMatch())
